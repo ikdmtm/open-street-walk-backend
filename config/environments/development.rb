@@ -62,4 +62,13 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+
+  Rails.application.routes.default_url_options[:host] = 'localhost'
+  Rails.application.routes.default_url_options[:port] = 3000
+
+  # コントローラーでurlを取得するときに出るエラーの回避
+  # config.active_storage.service_url_expires_in = 2.hour # URLの有効期限を設定
+  # config.active_storage.url_options = { host: 'localhost:3000', protocol: 'http' } # URLのオプションを設定
+
 end
