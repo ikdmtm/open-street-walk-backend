@@ -1,14 +1,12 @@
 class PinsController < ApplicationController
   before_action :authenticate_user!, {only: [:create, :update, :destroy]}
-  # @pins = Pin.all 
-  # render json: @pins, status: :ok
 
   def index
     @pins = Pin.with_attached_image
     # 画像のURLをプリロードして取得する
     # @pin_urls = @pins.map { |pin| pin.image.present? ? pin.image.url : nil }
     # Rails.application.routes.url_helpers.rails_representation_url(@user.avatar.variant({}), only_path: true)
-    @pin_urls = @pins.map { |pin| pin.image.present? ? Rails.application.routes.url_helpers.rails_representation_url(pin.image) : nil }
+    @pin_urls = @pins.map { |pin| pin.image.present? ? Rails.application.routes.url_helpers.rails_representation_url(pin.image, only_path: true) : nil }
     render json: { pins: @pins, pin_urls: @pin_urls }, status: :ok
   end
 
