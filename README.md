@@ -1,24 +1,28 @@
-# README
+# open-street-walk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## バックエンド
 
-Things you may want to cover:
+-   ruby: 3.2.1
+-   rails: 7.0.4
 
-* Ruby version
+*   gem
+*   devise
+*   devise_token_auth
+*   rack-cors
 
-* System dependencies
+## フロントエンド
 
-* Configuration
+<https://github.com/ikdmtm/open-street-walk>
 
-* Database creation
+-   node: v18.15.0
+-   next.js: 13.2.3
+-   yarn: 4.0.0
 
-* Database initialization
+*   パッケージ
+*   js-cookie: 3.0.1
+*   leaflet: 1.9.3
+*   react-leaflet: 4.2.1
 
-* How to run the test suite
+## API のエンドポイント
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## データベース
