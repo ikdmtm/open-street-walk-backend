@@ -15,5 +15,5 @@ primary_region = "nrt"
   [checks.alive]
     type = "tcp"
     interval = "15s"
-    timeout = "2s"
+    timeout = "60s"
     grace_period = "5s"
