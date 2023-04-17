@@ -14,9 +14,9 @@ class PinsController < ApplicationController
   def create
     @pin = Pin.new(pin_params)
     if @pin.save
-      render  json: @pin, status: :created
+      render  json: { success: true, pin: @pin, message: "ピンが作成されました" }, status: :created
     else
-      render json: @pin.errors, status: :unprocessable_entity
+      render json: { success: false, errors: @pin.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
