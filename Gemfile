@@ -49,6 +49,7 @@ end
 group :production do
   # Use PstgreSQL as the database for Active Record
   gem "pg", "~> 1.1"
+  gem 'aws-sdk-s3'
 end
 
 gem 'devise'
