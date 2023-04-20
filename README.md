@@ -4,11 +4,13 @@
 
 -   ruby: 3.2.1
 -   rails: 7.0.4
+    db: postgresql
 
 *   gem
 *   devise
 *   devise_token_auth
 *   rack-cors
+    pg
 
 ## フロントエンド
 
@@ -26,3 +28,5 @@
 ## API のエンドポイント
 
 ## データベース
+
+[erd.pdf](https://github.com/ikdmtm/open-street-walk-backend/files/11277408/erd.pdf)
