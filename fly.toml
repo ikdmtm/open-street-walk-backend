@@ -1,4 +1,4 @@
-# fly.toml file generated for open-street-walk-backend on 2023-04-16T10:32:49+09:00
+# fly.toml file generated for open-street-walk-backend on 2023-04-26T16:05:27+09:00
 
 app = "open-street-walk-backend"
 primary_region = "nrt"
