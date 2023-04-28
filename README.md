@@ -1,16 +1,21 @@
-# open-street-walk
+# OpenStreetWalk
+
+https://open-street-walk.vercel.app/
 
 ## バックエンド
 
 -   ruby: 3.2.1
 -   rails: 7.0.4
-    db: postgresql
 
 *   gem
-*   devise
-*   devise_token_auth
-*   rack-cors
+    devise
+    devise_token_auth
+    rack-cors
     pg
+    aws-sdk-s3
+
+*   DB: postgresql
+*   storage: S3
 
 ## フロントエンド
 
@@ -21,12 +26,20 @@
 -   yarn: 4.0.0
 
 *   パッケージ
-*   js-cookie: 3.0.1
-*   leaflet: 1.9.3
-*   react-leaflet: 4.2.1
+    js-cookie: 3.0.1
+    leaflet: 1.9.3
+    react-leaflet: 4.2.1
 
 ## API のエンドポイント
 
+| HTTP verb | パス           | 　コントローラー#アクション　          | 　目的　         |
+| --------- | -------------- | -------------------------------------- | ---------------- |
+| GET       | /              | pins#index                             | ピンの情報を取得 |
+| POST      | /pins          | pins#create                            | ピンを新規作成   |
+| POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン         |
+| DELETE    | /auth/sign_out | devise_token_auth/sessions#destroy     | ログアウト       |
+| POST      | /auth          | devise_token_auth/registrations#create | 新規登録         |
+
 ## データベース
 
-[erd.pdf](https://github.com/ikdmtm/open-street-walk-backend/files/11277408/erd.pdf)
+![image](https://user-images.githubusercontent.com/77443881/234790573-835c087f-384f-40b0-a0fb-a03813830341.png)
