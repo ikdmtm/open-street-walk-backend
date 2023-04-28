@@ -21,9 +21,13 @@ class PinsController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
+    @pin = Pin.find_by(id: params[:id])
+    @pin.destroy
+    @pin.image.purge
   end
 
   private
