@@ -1,5 +1,18 @@
 class PinsController < ApplicationController
   before_action :authenticate_user!, {only: [:create, :update, :destroy]}
+  before_action :ensure_correct_user, {only: [:delete]}
+
+  def ensure_correct_user #投稿者本人かどうかのチェック
+    @post = Post.find_by(id: params[:id])
+    if current_user
+      if @post.user_id == current_user.id #|| current_user.admin
+      else
+        render json: { success: false}, status: :unprocessable_entity
+      end
+    else
+      render json: { success: false}, status: :unprocessable_entity
+    end
+  end
 
   def index
     @pins = Pin.with_attached_image
