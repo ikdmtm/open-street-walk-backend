@@ -36,9 +36,11 @@ https://open-street-walk.vercel.app/
 | --------- | -------------- | -------------------------------------- | ---------------- |
 | GET       | /              | pins#index                             | ピンの情報を取得 |
 | POST      | /pins          | pins#create                            | ピンを新規作成   |
+| DELETE    | /pins/:id      | pins#delete                            | ピンの削除       |
 | POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン         |
 | DELETE    | /auth/sign_out | devise_token_auth/sessions#destroy     | ログアウト       |
 | POST      | /auth          | devise_token_auth/registrations#create | 新規登録         |
+| GET       | /users/:id     | users#show                             | マイページ       |
 
 ## データベース
 
