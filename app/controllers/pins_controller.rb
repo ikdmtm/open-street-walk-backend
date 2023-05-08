@@ -1,11 +1,11 @@
 class PinsController < ApplicationController
   before_action :authenticate_user!, {only: [:create, :update, :destroy]}
-  before_action :ensure_correct_user, {only: [:delete]}
+  before_action :ensure_correct_user, {only: [:destroy]}
 
   def ensure_correct_user #投稿者本人かどうかのチェック
-    @post = Post.find_by(id: params[:id])
+    @pin = Pin.find_by(id: params[:id])
     if current_user
-      if @post.user_id == current_user.id #|| current_user.admin
+      if @pin.user_id == current_user.id #|| current_user.admin
       else
         render json: { success: false}, status: :unprocessable_entity
       end
@@ -39,8 +39,13 @@ class PinsController < ApplicationController
 
   def destroy
     @pin = Pin.find_by(id: params[:id])
-    @pin.destroy
-    @pin.image.purge
+    image = @pin.image
+    if @pin.destroy
+      image.purge if image.attached? #imageが存在するとき
+      render json: {success: true}, status: :ok
+    else
+      render json: {success: false}, status: :bad_request
+    end
   end
 
   private
