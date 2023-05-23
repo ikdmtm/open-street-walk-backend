@@ -39,9 +39,10 @@ class PinsController < ApplicationController
 
   def destroy
     @pin = Pin.find_by(id: params[:id])
-    image = @pin.image
+    # imageをpurgeしようとするとエラー
+    # image = @pin.image
     if @pin.destroy
-      image.purge if image.attached? #imageが存在するとき
+      # image.purge if image.attached? #imageが存在するとき
       render json: {success: true}, status: :ok
     else
       render json: {success: false}, status: :bad_request
