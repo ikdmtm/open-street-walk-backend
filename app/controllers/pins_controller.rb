@@ -23,6 +23,13 @@ class PinsController < ApplicationController
     render json: { pins: @pins, pin_urls: @pin_urls }, status: :ok
   end
 
+  def show
+    @pin = Pin.find_by(id: params[:id])
+    # @pin_url = @pin.image
+    @pin_url = @pin.image.present? ? Rails.application.routes.url_helpers.rails_representation_url(@pin.image, only_path: true) : nil 
+    render json: {pin: @pin, pin_url: @pin_url}, status: :ok
+  end
+
 # pin = current_user.pins.build(pin_params)
   def create
     @pin = Pin.new(pin_params)
