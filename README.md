@@ -7,12 +7,13 @@ https://open-street-walk.vercel.app/
 -   ruby: 3.2.1
 -   rails: 7.0.4
 
-*   gem
-    devise
-    devise_token_auth
-    rack-cors
-    pg
-    aws-sdk-s3
+*   使用 gem
+
+    -   devise
+    -   devise_token_auth
+    -   rack-cors
+    -   pg
+    -   aws-sdk-s3
 
 *   DB: postgresql
 *   storage: S3
@@ -35,6 +36,7 @@ https://open-street-walk.vercel.app/
 | HTTP verb | パス           | 　コントローラー#アクション　          | 　目的　         |
 | --------- | -------------- | -------------------------------------- | ---------------- |
 | GET       | /              | pins#index                             | ピンの情報を取得 |
+| GET       | /pins/:id      | pins#show                              | ピンの情報を取得 |
 | POST      | /pins          | pins#create                            | ピンを新規作成   |
 | DELETE    | /pins/:id      | pins#delete                            | ピンの削除       |
 | POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン         |
